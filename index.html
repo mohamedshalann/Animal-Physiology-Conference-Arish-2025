@@ -185,6 +185,7 @@
             <a href="#home">الرئيسية / Home</a>
             <a href="#about">عن المؤتمر / About</a>
             <a href="#registration">التسجيل / Registration</a>
+            <a href="#benefits">مزايا المشاركة / Benefits</a>
             <a href="#contact">اتصل بنا / Contact Us</a>
         </div>
     </nav>
@@ -253,6 +254,23 @@
                     <button type="submit">إرسال إشعار الدفع / Send Payment Notification</button>
                 </form>
             </div>
+        </div>
+    </section>
+
+    <!-- قسم مزايا المشاركة -->
+    <section id="benefits" class="section">
+        <div class="container">
+            <h2>مزايا المشاركة / Participation Benefits</h2>
+            <p>نقدم لكم مجموعة من المزايا الحصرية للمشاركين في المؤتمر:</p>
+            <p>We offer a range of exclusive benefits for conference participants:</p>
+            <ul>
+                <li><strong>إقامة في فنادق 5 نجوم بمدينة العريش:</strong> تمتع بإقامة فاخرة في أفضل الفنادق خلال فترة المؤتمر.</li>
+                <li><strong>Accommodation in 5-star hotels in Arish:</strong> Enjoy luxurious stays in the best hotels during the conference.</li>
+                <li><strong>زيارات للمعالم الأثرية في مصر:</strong> قم بزيارة الأهرامات ودير سانت كاترين كجزء من برنامج المؤتمر.</li>
+                <li><strong>Visits to Egypt's landmarks:</strong> Visit the Pyramids and St. Catherine's Monastery as part of the conference program.</li>
+                <li><strong>تعزيز التواصل العلمي والتعاون الدولي:</strong> فرصة للتواصل مع خبراء وباحثين من حول العالم.</li>
+                <li><strong>Enhancing scientific communication and international collaboration:</strong> An opportunity to network with experts and researchers from around the world.</li>
+            </ul>
         </div>
     </section>
 
@@ -388,7 +406,8 @@
             const paymentData = {
                 name: document.getElementById('paymentName').value,
                 email: document.getElementById('paymentEmail').value,
-                details: document.getElementById('paymentDetails').value
+                details: document.getElementById('paymentDetails').value,
+                to_email: 'mohammed.shalaan@sci.aru.edu.eg' // إضافة البريد الإلكتروني المستهدف
             };
 
             // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
