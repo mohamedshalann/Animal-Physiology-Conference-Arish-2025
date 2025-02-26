@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                       <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -218,13 +218,14 @@
             };
 
             // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
-            emailjs.send('service_7lcwx0s', 'template_edkr74a', formData) // تم تحديث Template ID إلى template_edkr74a
+            emailjs.send('service_7lcwx0s', 'template_e18mier', formData) // تم تحديث Template ID إلى template_e18mier
                 .then(function(response) {
                     alert('تم إرسال طلب التسجيل بنجاح!');
                 }, function(error) {
+                    console.error('حدث خطأ أثناء إرسال الطلب:', error); // عرض تفاصيل الخطأ في الكونسول
                     alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
                 });
         });
     </script>
 </body>
-</html>
+</html> 
