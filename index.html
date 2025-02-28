@@ -443,10 +443,12 @@
 
             // جمع البيانات من النموذج
             const sponsorData = {
-                companyName: document.getElementById('name').value,
-                companyEmail: document.getElementById('email').value,
+                name: document.getElementById('companyName').value, // اسم الشركة مرتبط بـ {{name}}
+                email: document.getElementById('companyEmail').value, // إيميل الشركة مرتبط بـ {{email}}
                 to_email: 'mohammed.shalaan@sci.aru.edu.eg' // إضافة البريد الإلكتروني المستهدف
             };
+
+            console.log(sponsorData); // عرض البيانات في الكونسول للتأكد من صحتها
 
             // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
             emailjs.send('service_7lcwx0s', 'template_e18mier', sponsorData)
@@ -459,4 +461,4 @@
         });
     </script>
 </body>
-</html>
+                                              </html>
