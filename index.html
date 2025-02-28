@@ -185,6 +185,7 @@
             <a href="#home">الرئيسية / Home</a>
             <a href="#about">عن المؤتمر / About</a>
             <a href="#registration">التسجيل / Registration</a>
+            <a href="#sponsors">تسجيل الرعاة / Sponsor Registration</a>
             <a href="#benefits">مزايا المشاركة / Benefits</a>
             <a href="#contact">اتصل بنا / Contact Us</a>
         </div>
@@ -257,6 +258,22 @@
         </div>
     </section>
 
+    <!-- قسم تسجيل الرعاة -->
+    <section id="sponsors" class="section">
+        <div class="container">
+            <h2>تسجيل الرعاة / Sponsor Registration</h2>
+            <p>مرحبًا بكم في تسجيل الرعاة للمؤتمر الدولي الأول للفسيولوجي.</p>
+            <p>Welcome to the sponsor registration for the First International Physiology Conference.</p>
+            <form id="sponsorRegistrationForm">
+                <label for="companyName">اسم الشركة / Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+                <label for="companyEmail">البريد الإلكتروني للشركة / Company Email:</label>
+                <input type="email" id="companyEmail" name="companyEmail" required>
+                <button type="submit">إرسال / Submit</button>
+            </form>
+        </div>
+    </section>
+
     <!-- قسم مزايا المشاركة -->
     <section id="benefits" class="section">
         <div class="container">
@@ -278,8 +295,8 @@
     <section id="award" class="section">
         <div class="container">
             <h2>جائزة أفضل بحث / Best Research Award</h2>
-            <p>سيتم منح جائزة لأفضل بحث مشارك في المؤتمر. يرجى إرسال الملخصات أو الأبحاث الكاملة عبر البريد الإلكتروني:</p>
-            <p>A prize will be awarded for the best research paper presented at the conference. Please send abstracts or full papers via email:</p>
+            <p>سيتم منح جائزة لأفضل بحث مشارك في المؤتمر. يرجى إرسال الملخصات/البوسترات أو الأبحاث الكاملة عبر البريد الإلكتروني:</p>
+            <p>A prize will be awarded for the best research paper presented at the conference. Please send abstracts/posters or full papers via email:</p>
             <p><strong>البريد الإلكتروني / Email:</strong> <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
 
             <h3>شروط الملخص / Abstract Guidelines:</h3>
@@ -417,6 +434,27 @@
                 }, function(error) {
                     console.error('حدث خطأ أثناء إرسال إشعار الدفع:', error); // عرض تفاصيل الخطأ في الكونسول
                     alert('حدث خطأ أثناء إرسال إشعار الدفع. يرجى المحاولة مرة أخرى. / An error occurred while sending the payment notification. Please try again.');
+                });
+        });
+
+        // إرسال تسجيل الرعاة
+        document.getElementById('sponsorRegistrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // جمع البيانات من النموذج
+            const sponsorData = {
+                companyName: document.getElementById('name').value,
+                companyEmail: document.getElementById('email').value,
+                to_email: 'mohammed.shalaan@sci.aru.edu.eg' // إضافة البريد الإلكتروني المستهدف
+            };
+
+            // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
+            emailjs.send('service_7lcwx0s', 'template_e18mier', sponsorData)
+                .then(function(response) {
+                    alert('تم إرسال طلب تسجيل الراعي بنجاح! / Sponsor registration request sent successfully!');
+                }, function(error) {
+                    console.error('حدث خطأ أثناء إرسال طلب تسجيل الراعي:', error); // عرض تفاصيل الخطأ في الكونسول
+                    alert('حدث خطأ أثناء إرسال طلب تسجيل الراعي. يرجى المحاولة مرة أخرى. / An error occurred while sending the sponsor registration request. Please try again.');
                 });
         });
     </script>
