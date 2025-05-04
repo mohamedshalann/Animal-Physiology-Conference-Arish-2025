@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>مؤتمر الفسيولوجي 2025 / Physiology Conference 2025</title>
+    <title>المؤتمر الدولي الأول للفسيولوجي | جامعة العريش</title>
     <style>
         /* أنماط CSS */
         body {
@@ -19,8 +19,11 @@
 
         .navbar {
             background-color: #004080;
-            padding: 10px 0;
+            padding: 15px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar a {
@@ -28,16 +31,18 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+            transition: all 0.3s ease;
         }
 
         .navbar a:hover {
             color: #f8f9fa;
+            text-decoration: underline;
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQE...') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
             color: white;
-            padding: 120px 0;
+            padding: 150px 0;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -59,48 +64,92 @@
             margin-top: 20px;
             color: white;
             background-color: rgba(0, 64, 128, 0.8);
-            padding: 10px 20px;
+            padding: 15px 25px;
             border-radius: 10px;
             display: inline-block;
         }
 
+        .btn {
+            display: inline-block;
+            background-color: #004080;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #002d5a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .section {
-            margin: 40px 0;
+            margin: 50px 0;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
         }
 
         .section h2 {
             color: #004080;
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background-color: #004080;
         }
 
         .section p {
             font-size: 18px;
             line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .section ul {
+            padding-right: 20px;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            font-size: 17px;
         }
 
         .footer {
             background-color: #004080;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            padding: 30px 0;
+            margin-top: 50px;
         }
 
         .payment-methods {
-            margin-top: 20px;
+            margin-top: 30px;
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
         }
 
         .payment-methods h3 {
             color: #004080;
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .payment-methods ul {
@@ -110,6 +159,10 @@
 
         .payment-methods ul li {
             margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .payment-methods ul li strong {
@@ -117,18 +170,18 @@
         }
 
         .payment-confirmation {
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .payment-confirmation h3 {
             color: #004080;
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .payment-confirmation form {
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -137,28 +190,64 @@
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
+            color: #004080;
         }
 
         .payment-confirmation input,
-        .payment-confirmation textarea {
+        .payment-confirmation textarea,
+        .payment-confirmation select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-family: 'Tajawal', sans-serif;
         }
 
         .payment-confirmation button {
             background-color: #004080;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
 
         .payment-confirmation button:hover {
             background-color: #002d5a;
+        }
+
+        .accommodation-options {
+            margin-top: 30px;
+        }
+
+        .accommodation-options h4 {
+            color: #004080;
+            margin-bottom: 15px;
+        }
+
+        .accommodation-options table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .accommodation-options th,
+        .accommodation-options td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: right;
+        }
+
+        .accommodation-options th {
+            background-color: #004080;
+            color: white;
+        }
+
+        .accommodation-options tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
 
         @media (max-width: 768px) {
@@ -172,7 +261,12 @@
 
             .countdown-timer {
                 font-size: 18px;
-                padding: 8px 16px;
+                padding: 10px 20px;
+            }
+
+            .navbar a {
+                margin: 0 10px;
+                font-size: 16px;
             }
         }
     </style>
@@ -182,160 +276,230 @@
     <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home">الرئيسية / Home</a>
-            <a href="#about">عن المؤتمر / About</a>
-            <a href="#registration">التسجيل / Registration</a>
-            <a href="#sponsors">تسجيل الرعاة / Sponsor Registration</a>
-            <a href="#benefits">مزايا المشاركة / Benefits</a>
-            <a href="#contact">اتصل بنا / Contact Us</a>
+            <a href="#home">الرئيسية</a>
+            <a href="#about">عن المؤتمر</a>
+            <a href="#themes">محاور المؤتمر</a>
+            <a href="#registration">التسجيل</a>
+            <a href="#submission">إرسال الأبحاث</a>
+            <a href="#fees">رسوم المشاركة</a>
+            <a href="#contact">اتصل بنا</a>
         </div>
     </nav>
 
     <!-- قسم البطل -->
     <section id="home" class="hero-section">
         <div class="container">
-            <h1>المؤتمر الدولي الأول للفسيولوجي / The First International Physiology Conference</h1>
-            <p>"آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي" / "New Horizons in Scientific Research, Technological Innovation, and Biomedical Advances"</p>
-            <p>1-3 ديسمبر 2025 - جامعة العريش، مصر / December 1-3, 2025 - Arish University, Egypt</p>
+            <h1>المؤتمر الدولي الأول للفسيولوجي</h1>
+            <p>"آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي"</p>
+            <p>1-3 ديسمبر 2025 - جامعة العريش، مصر</p>
+            <p>تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
             <div id="countdown" class="countdown-timer"></div>
-            <a href="#registration" class="btn">التسجيل الآن / Register Now</a>
+            <a href="#registration" class="btn">التسجيل الآن</a>
         </div>
     </section>
 
     <!-- قسم عن المؤتمر -->
     <section id="about" class="section">
         <div class="container">
-            <h2>عن المؤتمر / About the Conference</h2>
-            <p>مؤتمر الفسيولوجي 2025 هو حدث عالمي يهدف إلى جمع الخبراء والباحثين في مجال الفسيولوجيا لمناقشة أحدث التطورات والابتكارات في هذا المجال.</p>
-            <p>The Physiology Conference 2025 is a global event that aims to bring together experts and researchers in the field of physiology to discuss the latest developments and innovations in this field.</p>
+            <h2>عن المؤتمر</h2>
+            <p>ينظم المؤتمر الدولي الأول للفسيولوجي تحت عنوان "آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي" خلال الفترة من 1-3 ديسمبر 2025 بجامعة العريش، مصر، بالتعاون مع مجلة Animal Physiology وبنك المعرفة المصري.</p>
+            
+            <h3>أهداف المؤتمر:</h3>
+            <ul>
+                <li>عرض أحدث الأبحاث والابتكارات في مجال الفسيولوجيا.</li>
+                <li>تعزيز التعاون العلمي بين الباحثين على المستويين المحلي والدولي.</li>
+                <li>إتاحة الفرصة لنشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- قسم محاور المؤتمر -->
+    <section id="themes" class="section">
+        <div class="container">
+            <h2>محاور المؤتمر</h2>
+            <ol>
+                <li>الفسيولوجيا الجزيئية والخلوية</li>
+                <li>فسيولوجيا الأعصاب والفسيولوجيا السلوكية</li>
+                <li>فسيولوجيا الغدد الصماء والإنجاب</li>
+                <li>الفسيولوجيا المقارنة والتكيف</li>
+                <li>الفسيولوجيا المرضية والسريرية والعلاجية</li>
+                <li>فسيولوجيا الجهاز الهضمي والتمثيل الغذائي</li>
+                <li>فسيولوجيا الجهاز الإخراجي والتنفسي</li>
+                <li>علم السموم والتغذية</li>
+                <li>فسيولوجيا الأجنة والطفيليات والحشرات</li>
+                <li>فسيولوجيا الجهاز العضلي والهيكلي</li>
+                <li>فسيولوجيا الدم والمناعة</li>
+                <li>الفسيولوجيا والتكنولوجيا الحيوية والابتكار</li>
+            </ol>
         </div>
     </section>
 
     <!-- قسم التسجيل -->
     <section id="registration" class="section">
         <div class="container">
-            <h2>التسجيل / Registration</h2>
-            <p>سجل الآن لحضور المؤتمر والاستفادة من الفرص العلمية والبحثية المتاحة.</p>
-            <p>Register now to attend the conference and take advantage of the available scientific and research opportunities.</p>
+            <h2>التسجيل في المؤتمر</h2>
+            <p>للتسجيل في المؤتمر، يرجى تعبئة النموذج التالي:</p>
             <form id="registrationForm">
-                <label for="name">الاسم الكامل / Full Name:</label>
+                <label for="name">الاسم الكامل:</label>
                 <input type="text" id="name" name="name" required>
-                <label for="email">البريد الإلكتروني / Email:</label>
+                
+                <label for="email">البريد الإلكتروني:</label>
                 <input type="email" id="email" name="email" required>
-                <button type="submit">إرسال / Submit</button>
+                
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="country">الدولة:</label>
+                <input type="text" id="country" name="country" required>
+                
+                <label for="institution">الجهة التابع لها:</label>
+                <input type="text" id="institution" name="institution" required>
+                
+                <label for="participation">نوع المشاركة:</label>
+                <select id="participation" name="participation" required>
+                    <option value="">-- اختر نوع المشاركة --</option>
+                    <option value="with_paper">ببحث علمي</option>
+                    <option value="without_paper">حضور فقط</option>
+                    <option value="online">مشاركة أونلاين</option>
+                </select>
+                
+                <button type="submit">إرسال طلب التسجيل</button>
             </form>
-
-            <!-- وسائل الدفع -->
-            <div class="payment-methods">
-                <h3>وسائل دفع رسوم الاشتراك / Payment Methods:</h3>
-                <ul>
-                    <li>
-                        <strong>فودافون كاش / Vodafone Cash:</strong>
-                        <p>رقم الهاتف / Phone Number: <a href="tel:+201090310355">002 01090310355</a></p>
-                    </li>
-                    <li>
-                        <strong>بايبال / PayPal:</strong>
-                        <p>البريد الإلكتروني / Email: <a href="mailto:mohamedgabershalan@gmail.com">mohamedgabershalan@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- تأكيد الدفع -->
-            <div class="payment-confirmation">
-                <h3>تأكيد الدفع / Payment Confirmation</h3>
-                <p>بعد إتمام الدفع، يرجى إرسال إشعار بالدفع مع تفاصيل التحويل إلى البريد الإلكتروني الخاص بالمؤتمر.</p>
-                <p>After completing the payment, please send a payment notification with the transfer details to the conference email.</p>
-                <form id="paymentConfirmationForm">
-                    <label for="paymentName">الاسم الكامل / Full Name:</label>
-                    <input type="text" id="paymentName" name="paymentName" required>
-                    <label for="paymentEmail">البريد الإلكتروني / Email:</label>
-                    <input type="email" id="paymentEmail" name="paymentEmail" required>
-                    <label for="paymentDetails">تفاصيل الدفع / Payment Details:</label>
-                    <textarea id="paymentDetails" name="paymentDetails" rows="4" required></textarea>
-                    <button type="submit">إرسال إشعار الدفع / Send Payment Notification</button>
-                </form>
-            </div>
         </div>
     </section>
 
-    <!-- قسم تسجيل الرعاة -->
-    <section id="sponsors" class="section">
+    <!-- قسم إرسال الأبحاث -->
+    <section id="submission" class="section">
         <div class="container">
-            <h2>تسجيل الرعاة / Sponsor Registration</h2>
-            <p>مرحبًا بكم في تسجيل الرعاة للمؤتمر الدولي الأول للفسيولوجي.</p>
-            <p>Welcome to the sponsor registration for the First International Physiology Conference.</p>
-            <form id="sponsorRegistrationForm">
-                <label for="companyName">اسم الشركة / Company Name:</label>
-                <input type="text" id="companyName" name="companyName" required>
-                <label for="companyEmail">البريد الإلكتروني للشركة / Company Email:</label>
-                <input type="email" id="companyEmail" name="companyEmail" required>
-                <button type="submit">إرسال / Submit</button>
-            </form>
+            <h2>إرسال الملخصات والأبحاث</h2>
+            
+            <h3>إرسال الملخصات:</h3>
+            <p>ترسل الملخصات عبر البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
+            
+            <h4>شروط الملخص:</h4>
+            <ul>
+                <li>مكتوب باللغة الإنجليزية.</li>
+                <li>الخط: Times New Roman حجم 12، سطور مفردة.</li>
+                <li>لا يزيد عن 250 كلمة.</li>
+                <li>يجب إرفاق إقرار بأن الملخص/البحث لم ولن يُقدم للنشر في أي مجلة أخرى.</li>
+                <li>تُرسل أسماء المؤلفين وجهة عملهم في ملف منفصل.</li>
+            </ul>
+            
+            <h3>البحوث الكاملة:</h3>
+            <p>ترسل عبر الموقع الرسمي للمجلة: <a href="https://apj.journals.ekb.eg/" target="_blank">https://apj.journals.ekb.eg/</a></p>
+            <p>لا يزيد عدد صفحات البحث عن 10 صفحات، وكل صفحة إضافية يضاف 100 جنيه.</p>
+            
+            <h3>النشر:</h3>
+            <ul>
+                <li>جميع الملخصات المقبولة ستنشر في عدد خاص من مجلة Animal Physiology (عدد يناير 2026).</li>
+                <li>للأبحاث الكاملة، سيتم التحكيم والنشر وفق نظام المراجعة المزدوجة Double-blind.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- قسم رسوم المشاركة -->
+    <section id="fees" class="section">
+        <div class="container">
+            <h2>رسوم المشاركة</h2>
+            
+            <h3>المشاركون المصريون:</h3>
+            <ul>
+                <li>ببحث: 1000 جنيه مصري (لأعضاء هيئة التدريس وطلاب الدراسات العليا).</li>
+                <li>بدون بحث (حضور): 600 جنيه</li>
+            </ul>
+            
+            <h4>خيارات الإقامة للمشاركين المصريين:</h4>
+            <div class="accommodation-options">
+                <table>
+                    <tr>
+                        <th>نوع الإقامة</th>
+                        <th>السعر (جنيه مصري)</th>
+                        <th>التفاصيل</th>
+                    </tr>
+                    <tr>
+                        <td>فندق ريتاك العريش (4 نجوم)</td>
+                        <td>5,500</td>
+                        <td>غرفة مزدوجة للفرد شامل الإفطار</td>
+                    </tr>
+                    <tr>
+                        <td>فندق ريتاك العريش (4 نجوم)</td>
+                        <td>10,200</td>
+                        <td>غرفة فردية للفرد شامل الإفطار</td>
+                    </tr>
+                    <tr>
+                        <td>دار الضيافة جامعة العريش</td>
+                        <td>165</td>
+                        <td>غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                    </tr>
+                    <tr>
+                        <td>دار الضيافة جامعة العريش</td>
+                        <td>210</td>
+                        <td>غرفة فردية للفرد (غير شامل وجبات)</td>
+                    </tr>
+                    <tr>
+                        <td>دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td>360</td>
+                        <td>غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                    </tr>
+                    <tr>
+                        <td>دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td>510</td>
+                        <td>غرفة فردية للفرد (غير شامل وجبات)</td>
+                    </tr>
+                </table>
+                <p>ملاحظة: أسعار الإقامة تشمل مدة المؤتمر كاملة (3 أيام). ويمكن تحديد مدة أقل لمن يرغب.</p>
+            </div>
+            
+            <h3>المشاركون الدوليون:</h3>
+            <ul>
+                <li>اشتراك حضور: 200 دولار</li>
+                <li>اشتراك ببحث: 400 دولار</li>
+            </ul>
+            
+            <h4>خيارات الإقامة للمشاركين الدوليين:</h4>
+            <div class="accommodation-options">
+                <table>
+                    <tr>
+                        <th>نوع الإقامة</th>
+                        <th>السعر (دولار)</th>
+                        <th>التفاصيل</th>
+                    </tr>
+                    <tr>
+                        <td>غرفة فردية</td>
+                        <td>170</td>
+                        <td>للمدة الكاملة</td>
+                    </tr>
+                    <tr>
+                        <td>غرفة مزدوجة</td>
+                        <td>225</td>
+                        <td>للمدة الكاملة</td>
+                    </tr>
+                    <tr>
+                        <td>باقة شاملة</td>
+                        <td>500</td>
+                        <td>شاملة المواصلات والإقامة</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>المشاركة أونلاين بالشهادات:</h3>
+            <ul>
+                <li>400 جنيه مصري (للمصريين).</li>
+                <li>200 دولار (للدوليين).</li>
+            </ul>
         </div>
     </section>
 
     <!-- قسم مزايا المشاركة -->
-    <section id="benefits" class="section">
+    <section class="section">
         <div class="container">
-            <h2>مزايا المشاركة / Participation Benefits</h2>
-            <p>نقدم لكم مجموعة من المزايا الحصرية للمشاركين في المؤتمر:</p>
-            <p>We offer a range of exclusive benefits for conference participants:</p>
+            <h2>مزايا المشاركة</h2>
             <ul>
-                <li><strong>إقامة في فنادق 5 نجوم بمدينة العريش:</strong> تمتع بإقامة فاخرة في أفضل الفنادق خلال فترة المؤتمر.</li>
-                <li><strong>Accommodation in 5-star hotels in Arish:</strong> Enjoy luxurious stays in the best hotels during the conference.</li>
-                <li><strong>زيارات للمعالم الأثرية في مصر:</strong> قم بزيارة الأهرامات ودير سانت كاترين كجزء من برنامج المؤتمر.</li>
-                <li><strong>Visits to Egypt's landmarks:</strong> Visit the Pyramids and St. Catherine's Monastery as part of the conference program.</li>
-                <li><strong>تعزيز التواصل العلمي والتعاون الدولي:</strong> فرصة للتواصل مع خبراء وباحثين من حول العالم.</li>
-                <li><strong>Enhancing scientific communication and international collaboration:</strong> An opportunity to network with experts and researchers from around the world.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- قسم جائزة أفضل بحث -->
-    <section id="award" class="section">
-        <div class="container">
-            <h2>جائزة أفضل بحث / Best Research Award</h2>
-            <p>سيتم منح جائزة لأفضل بحث مشارك في المؤتمر. يرجى إرسال الملخصات/البوسترات أو الأبحاث الكاملة عبر البريد الإلكتروني:</p>
-            <p>A prize will be awarded for the best research paper presented at the conference. Please send abstracts/posters or full papers via email:</p>
-            <p><strong>البريد الإلكتروني / Email:</strong> <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
-
-            <h3>شروط الملخص / Abstract Guidelines:</h3>
-            <ul>
-                <li>مكتوب باللغة الإنجليزية / Written in English.</li>
-                <li>الخط: Times New Roman، حجم 12، سطور مفردة / Font: Times New Roman, size 12, single-spaced.</li>
-                <li>لا يزيد عن 250 كلمة / Not exceeding 250 words.</li>
-                <li>يجب إرفاق إقرار بأن الملخص/البحث لم ولن يُقدم للنشر في أي مجلة أخرى / A declaration must be attached stating that the abstract/research has not been and will not be submitted for publication elsewhere.</li>
-                <li>تُرسل أسماء المؤلفين وجهة عملهم في ملف منفصل / Authors' names and affiliations should be sent in a separate file.</li>
-            </ul>
-
-            <h3>البحوث الكاملة / Full Papers:</h3>
-            <p>ترسل عبر الموقع الرسمي للمجلة:</p>
-            <p>Full papers should be submitted via the official journal website:</p>
-            <p><a href="https://apj.journals.ekb.eg/" target="_blank">https://apj.journals.ekb.eg/</a></p>
-
-            <h3>رسوم التسجيل / Registration Fees:</h3>
-            <ul>
-                <li>
-                    <strong>المشاركون المصريون / Egyptian Participants:</strong>
-                    <ul>
-                        <li>1000 جنيه مصري (لأعضاء هيئة التدريس وطلاب الدراسات العليا) / 1000 EGP (for faculty members and postgraduate students).</li>
-                        <li>إقامة: 4500 جنيه + 500 جنيه مواصلات ذهاب وعودة / Accommodation: 4500 EGP + 500 EGP for round-trip transportation.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>المشاركون الدوليون / International Participants:</strong>
-                    <ul>
-                        <li>150 دولارًا (البحث) / 150 USD (for research).</li>
-                        <li>إقامة: 1000 دولار (شاملة المواصلات) / Accommodation: 1000 USD (including transportation).</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>المشاركة أونلاين بالشهادات / Online Participation with Certificates:</strong>
-                    <ul>
-                        <li>200 جنيه مصري (للمصريين) / 200 EGP (for Egyptians).</li>
-                        <li>25 دولارًا (لغير المصريين) / 25 USD (for non-Egyptians).</li>
-                    </ul>
-                </li>
+                <li>إقامة في فنادق 4 نجوم بمدينة العريش.</li>
+                <li>زيارات للمعالم الأثرية في مصر (الأهرامات، دير سانت كاترين).</li>
+                <li>فرصة لتعزيز التواصل العلمي والتعاون الدولي.</li>
+                <li>جائزة لأحسن بحث علمي مشارك.</li>
+                <li>نشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
             </ul>
         </div>
     </section>
@@ -343,19 +507,21 @@
     <!-- قسم اتصل بنا -->
     <section id="contact" class="section">
         <div class="container">
-            <h2>اتصل بنا / Contact Us</h2>
-            <p>للاستفسارات أو المساعدة، يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف.</p>
-            <p>For inquiries or assistance, you can contact us via email or phone.</p>
-            <p>البريد الإلكتروني / Email: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
-            <p>الهاتف / Phone: <a href="tel:+201006985455">+201006985455</a></p>
+            <h2>اتصل بنا</h2>
+            <p>للاستفسارات أو المساعدة، يمكنك التواصل معنا عبر:</p>
+            <ul>
+                <li>البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></li>
+                <li>واتساب: د. محمد شعلان - <a href="https://wa.me/201006985455">+201006985455</a></li>
+            </ul>
+            <p>نتطلع لمشاركتكم في هذا الحدث العلمي المميز!</p>
         </div>
     </section>
 
     <!-- الفوتر -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 مؤتمر الفسيولوجي. جميع الحقوق محفوظة.</p>
-            <p>&copy; 2025 Physiology Conference. All rights reserved.</p>
+            <p>&copy; 2025 المؤتمر الدولي الأول للفسيولوجي. جميع الحقوق محفوظة.</p>
+            <p>تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
         </div>
     </footer>
 
@@ -370,7 +536,7 @@
                 const diff = eventDate - now;
 
                 if (diff < 0) {
-                    countdownElement.innerHTML = "لقد بدأ المؤتمر! / The conference has started!";
+                    countdownElement.innerHTML = "لقد بدأ المؤتمر!";
                     return;
                 }
 
@@ -379,7 +545,7 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `${days} يوم / Days - ${hours} ساعة / Hours - ${minutes} دقيقة / Minutes - ${seconds} ثانية / Seconds`;
+                countdownElement.innerHTML = `${days} يوم - ${hours} ساعة - ${minutes} دقيقة - ${seconds} ثانية`;
             };
 
             updateCountdown();
@@ -393,7 +559,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // تهيئة EmailJS
-        emailjs.init('gm8i_bw2h5sxtKWbp'); // تم إضافة User ID الخاص بك
+        emailjs.init('gm8i_bw2h5sxtKWbp'); // استبدل بمعرف المستخدم الخاص بك من EmailJS
 
         // إرسال البريد الإلكتروني عند تقديم النموذج
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
@@ -401,64 +567,24 @@
 
             // جمع البيانات من النموذج
             const formData = {
-                name: document.getElementById('name').value, // اسم المرسل
-                email: document.getElementById('email').value // بريد المرسل الإلكتروني
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                country: document.getElementById('country').value,
+                institution: document.getElementById('institution').value,
+                participation: document.getElementById('participation').value
             };
 
-            // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
+            // إرسال البريد الإلكتروني
             emailjs.send('service_7lcwx0s', 'template_e18mier', formData)
                 .then(function(response) {
-                    alert('تم إرسال طلب التسجيل بنجاح! / Registration request sent successfully!');
+                    alert('تم إرسال طلب التسجيل بنجاح! سنتواصل معك قريبًا.');
+                    document.getElementById('registrationForm').reset();
                 }, function(error) {
-                    console.error('حدث خطأ أثناء إرسال الطلب:', error); // عرض تفاصيل الخطأ في الكونسول
-                    alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى. / An error occurred while sending the request. Please try again.');
-                });
-        });
-
-        // إرسال إشعار الدفع
-        document.getElementById('paymentConfirmationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // جمع البيانات من النموذج
-            const paymentData = {
-                name: document.getElementById('paymentName').value,
-                email: document.getElementById('paymentEmail').value,
-                details: document.getElementById('paymentDetails').value,
-                to_email: 'mohammed.shalaan@sci.aru.edu.eg' // إضافة البريد الإلكتروني المستهدف
-            };
-
-            // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
-            emailjs.send('service_7lcwx0s', 'template_e18mier', paymentData)
-                .then(function(response) {
-                    alert('تم إرسال إشعار الدفع بنجاح! / Payment notification sent successfully!');
-                }, function(error) {
-                    console.error('حدث خطأ أثناء إرسال إشعار الدفع:', error); // عرض تفاصيل الخطأ في الكونسول
-                    alert('حدث خطأ أثناء إرسال إشعار الدفع. يرجى المحاولة مرة أخرى. / An error occurred while sending the payment notification. Please try again.');
-                });
-        });
-
-        // إرسال تسجيل الرعاة
-        document.getElementById('sponsorRegistrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // جمع البيانات من النموذج
-            const sponsorData = {
-                name: document.getElementById('companyName').value, // اسم الشركة مرتبط بـ {{name}}
-                email: document.getElementById('companyEmail').value, // إيميل الشركة مرتبط بـ {{email}}
-                to_email: 'mohammed.shalaan@sci.aru.edu.eg' // إضافة البريد الإلكتروني المستهدف
-            };
-
-            console.log(sponsorData); // عرض البيانات في الكونسول للتأكد من صحتها
-
-            // إرسال البريد الإلكتروني باستخدام Service ID و Template ID الخاصين بك
-            emailjs.send('service_7lcwx0s', 'template_e18mier', sponsorData)
-                .then(function(response) {
-                    alert('تم إرسال طلب تسجيل الراعي بنجاح! / Sponsor registration request sent successfully!');
-                }, function(error) {
-                    console.error('حدث خطأ أثناء إرسال طلب تسجيل الراعي:', error); // عرض تفاصيل الخطأ في الكونسول
-                    alert('حدث خطأ أثناء إرسال طلب تسجيل الراعي. يرجى المحاولة مرة أخرى. / An error occurred while sending the sponsor registration request. Please try again.');
+                    console.error('حدث خطأ أثناء إرسال الطلب:', error);
+                    alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
                 });
         });
     </script>
 </body>
-                                              </html>
+                        </html>
