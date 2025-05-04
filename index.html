@@ -15,6 +15,23 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body.english {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .english .section h2::after {
+            right: auto;
+            left: 0;
+        }
+
+        .english .section ul {
+            padding-right: 0;
+            padding-left: 20px;
         }
 
         .navbar {
@@ -24,6 +41,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-links {
+            display: flex;
         }
 
         .navbar a {
@@ -37,6 +61,24 @@
         .navbar a:hover {
             color: #f8f9fa;
             text-decoration: underline;
+        }
+
+        .language-switcher {
+            margin-left: 15px;
+        }
+
+        .language-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .hero-section {
@@ -241,6 +283,11 @@
             text-align: right;
         }
 
+        .english .accommodation-options th,
+        .english .accommodation-options td {
+            text-align: left;
+        }
+
         .accommodation-options th {
             background-color: #004080;
             color: white;
@@ -248,6 +295,20 @@
 
         .accommodation-options tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        /* عناصر مخفية للغة الإنجليزية */
+        .ar-content {
+            display: block;
+        }
+        .en-content {
+            display: none;
+        }
+        .english .ar-content {
+            display: none;
+        }
+        .english .en-content {
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -268,6 +329,19 @@
                 margin: 0 10px;
                 font-size: 16px;
             }
+            
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .navbar-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .language-switcher {
+                margin: 15px 0 0 0;
+            }
         }
     </style>
 </head>
@@ -276,39 +350,71 @@
     <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home">الرئيسية</a>
-            <a href="#about">عن المؤتمر</a>
-            <a href="#themes">محاور المؤتمر</a>
-            <a href="#registration">التسجيل</a>
-            <a href="#submission">إرسال الأبحاث</a>
-            <a href="#fees">رسوم المشاركة</a>
-            <a href="#contact">اتصل بنا</a>
+            <div class="navbar-links">
+                <a href="#home" class="ar-content">الرئيسية</a>
+                <a href="#home" class="en-content">Home</a>
+                <a href="#about" class="ar-content">عن المؤتمر</a>
+                <a href="#about" class="en-content">About</a>
+                <a href="#themes" class="ar-content">محاور المؤتمر</a>
+                <a href="#themes" class="en-content">Themes</a>
+                <a href="#registration" class="ar-content">التسجيل</a>
+                <a href="#registration" class="en-content">Registration</a>
+                <a href="#submission" class="ar-content">إرسال الأبحاث</a>
+                <a href="#submission" class="en-content">Submissions</a>
+                <a href="#fees" class="ar-content">رسوم المشاركة</a>
+                <a href="#fees" class="en-content">Fees</a>
+                <a href="#contact" class="ar-content">اتصل بنا</a>
+                <a href="#contact" class="en-content">Contact</a>
+            </div>
+            <div class="language-switcher">
+                <button class="language-btn ar-content" onclick="switchLanguage('en')">English</button>
+                <button class="language-btn en-content" onclick="switchLanguage('ar')">العربية</button>
+            </div>
         </div>
     </nav>
 
     <!-- قسم البطل -->
     <section id="home" class="hero-section">
         <div class="container">
-            <h1>المؤتمر الدولي الأول للفسيولوجي</h1>
-            <p>"آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي"</p>
-            <p>1-3 ديسمبر 2025 - جامعة العريش، مصر</p>
-            <p>تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
+            <h1 class="ar-content">المؤتمر الدولي الأول للفسيولوجي</h1>
+            <h1 class="en-content">First International Conference of Physiology</h1>
+            
+            <p class="ar-content">"آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي"</p>
+            <p class="en-content">"New Horizons in Scientific Research, Technological and Biomedical Innovation"</p>
+            
+            <p class="ar-content">1-3 ديسمبر 2025 - جامعة العريش، مصر</p>
+            <p class="en-content">December 1-3, 2025 - Arish University, Egypt</p>
+            
+            <p class="ar-content">تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
+            <p class="en-content">Organized by: Animal Physiology Journal in collaboration with Egyptian Knowledge Bank</p>
+            
             <div id="countdown" class="countdown-timer"></div>
-            <a href="#registration" class="btn">التسجيل الآن</a>
+            
+            <a href="#registration" class="btn ar-content">التسجيل الآن</a>
+            <a href="#registration" class="btn en-content">Register Now</a>
         </div>
     </section>
 
     <!-- قسم عن المؤتمر -->
     <section id="about" class="section">
         <div class="container">
-            <h2>عن المؤتمر</h2>
-            <p>ينظم المؤتمر الدولي الأول للفسيولوجي تحت عنوان "آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي" خلال الفترة من 1-3 ديسمبر 2025 بجامعة العريش، مصر، بالتعاون مع مجلة Animal Physiology وبنك المعرفة المصري.</p>
+            <h2 class="ar-content">عن المؤتمر</h2>
+            <h2 class="en-content">About the Conference</h2>
             
-            <h3>أهداف المؤتمر:</h3>
+            <p class="ar-content">ينظم المؤتمر الدولي الأول للفسيولوجي تحت عنوان "آفاق جديدة في البحث العلمي والابتكار التكنولوجي والطبي الحيوي" خلال الفترة من 1-3 ديسمبر 2025 بجامعة العريش، مصر، بالتعاون مع مجلة Animal Physiology وبنك المعرفة المصري.</p>
+            <p class="en-content">The First International Conference of Physiology under the title "New Horizons in Scientific Research, Technological and Biomedical Innovation" will be held from December 1-3, 2025 at Arish University, Egypt, in collaboration with Animal Physiology Journal and Egyptian Knowledge Bank.</p>
+            
+            <h3 class="ar-content">أهداف المؤتمر:</h3>
+            <h3 class="en-content">Conference Objectives:</h3>
             <ul>
-                <li>عرض أحدث الأبحاث والابتكارات في مجال الفسيولوجيا.</li>
-                <li>تعزيز التعاون العلمي بين الباحثين على المستويين المحلي والدولي.</li>
-                <li>إتاحة الفرصة لنشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
+                <li class="ar-content">عرض أحدث الأبحاث والابتكارات في مجال الفسيولوجيا.</li>
+                <li class="en-content">Present the latest research and innovations in the field of physiology.</li>
+                
+                <li class="ar-content">تعزيز التعاون العلمي بين الباحثين على المستويين المحلي والدولي.</li>
+                <li class="en-content">Enhance scientific collaboration between researchers at local and international levels.</li>
+                
+                <li class="ar-content">إتاحة الفرصة لنشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
+                <li class="en-content">Provide opportunity for publishing research in a special issue of Animal Physiology Journal.</li>
             </ul>
         </div>
     </section>
@@ -316,20 +422,44 @@
     <!-- قسم محاور المؤتمر -->
     <section id="themes" class="section">
         <div class="container">
-            <h2>محاور المؤتمر</h2>
+            <h2 class="ar-content">محاور المؤتمر</h2>
+            <h2 class="en-content">Conference Themes</h2>
             <ol>
-                <li>الفسيولوجيا الجزيئية والخلوية</li>
-                <li>فسيولوجيا الأعصاب والفسيولوجيا السلوكية</li>
-                <li>فسيولوجيا الغدد الصماء والإنجاب</li>
-                <li>الفسيولوجيا المقارنة والتكيف</li>
-                <li>الفسيولوجيا المرضية والسريرية والعلاجية</li>
-                <li>فسيولوجيا الجهاز الهضمي والتمثيل الغذائي</li>
-                <li>فسيولوجيا الجهاز الإخراجي والتنفسي</li>
-                <li>علم السموم والتغذية</li>
-                <li>فسيولوجيا الأجنة والطفيليات والحشرات</li>
-                <li>فسيولوجيا الجهاز العضلي والهيكلي</li>
-                <li>فسيولوجيا الدم والمناعة</li>
-                <li>الفسيولوجيا والتكنولوجيا الحيوية والابتكار</li>
+                <li class="ar-content">الفسيولوجيا الجزيئية والخلوية</li>
+                <li class="en-content">Molecular and Cellular Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الأعصاب والفسيولوجيا السلوكية</li>
+                <li class="en-content">Neurophysiology and Behavioral Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الغدد الصماء والإنجاب</li>
+                <li class="en-content">Endocrine and Reproductive Physiology</li>
+                
+                <li class="ar-content">الفسيولوجيا المقارنة والتكيف</li>
+                <li class="en-content">Comparative and Adaptive Physiology</li>
+                
+                <li class="ar-content">الفسيولوجيا المرضية والسريرية والعلاجية</li>
+                <li class="en-content">Pathological, Clinical and Therapeutic Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الجهاز الهضمي والتمثيل الغذائي</li>
+                <li class="en-content">Gastrointestinal and Metabolic Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الجهاز الإخراجي والتنفسي</li>
+                <li class="en-content">Excretory and Respiratory Physiology</li>
+                
+                <li class="ar-content">علم السموم والتغذية</li>
+                <li class="en-content">Toxicology and Nutrition</li>
+                
+                <li class="ar-content">فسيولوجيا الأجنة والطفيليات والحشرات</li>
+                <li class="en-content">Embryonic, Parasite and Insect Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الجهاز العضلي والهيكلي</li>
+                <li class="en-content">Musculoskeletal Physiology</li>
+                
+                <li class="ar-content">فسيولوجيا الدم والمناعة</li>
+                <li class="en-content">Blood and Immune Physiology</li>
+                
+                <li class="ar-content">الفسيولوجيا والتكنولوجيا الحيوية والابتكار</li>
+                <li class="en-content">Physiology, Biotechnology and Innovation</li>
             </ol>
         </div>
     </section>
@@ -337,33 +467,48 @@
     <!-- قسم التسجيل -->
     <section id="registration" class="section">
         <div class="container">
-            <h2>التسجيل في المؤتمر</h2>
-            <p>للتسجيل في المؤتمر، يرجى تعبئة النموذج التالي:</p>
+            <h2 class="ar-content">التسجيل في المؤتمر</h2>
+            <h2 class="en-content">Conference Registration</h2>
+            
+            <p class="ar-content">للتسجيل في المؤتمر، يرجى تعبئة النموذج التالي:</p>
+            <p class="en-content">To register for the conference, please fill out the following form:</p>
+            
             <form id="registrationForm">
-                <label for="name">الاسم الكامل:</label>
+                <label for="name" class="ar-content">الاسم الكامل:</label>
+                <label for="name" class="en-content">Full Name:</label>
                 <input type="text" id="name" name="name" required>
                 
-                <label for="email">البريد الإلكتروني:</label>
+                <label for="email" class="ar-content">البريد الإلكتروني:</label>
+                <label for="email" class="en-content">Email:</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="phone">رقم الهاتف:</label>
+                <label for="phone" class="ar-content">رقم الهاتف:</label>
+                <label for="phone" class="en-content">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
                 
-                <label for="country">الدولة:</label>
+                <label for="country" class="ar-content">الدولة:</label>
+                <label for="country" class="en-content">Country:</label>
                 <input type="text" id="country" name="country" required>
                 
-                <label for="institution">الجهة التابع لها:</label>
+                <label for="institution" class="ar-content">الجهة التابع لها:</label>
+                <label for="institution" class="en-content">Affiliation:</label>
                 <input type="text" id="institution" name="institution" required>
                 
-                <label for="participation">نوع المشاركة:</label>
+                <label for="participation" class="ar-content">نوع المشاركة:</label>
+                <label for="participation" class="en-content">Participation Type:</label>
                 <select id="participation" name="participation" required>
-                    <option value="">-- اختر نوع المشاركة --</option>
-                    <option value="with_paper">ببحث علمي</option>
-                    <option value="without_paper">حضور فقط</option>
-                    <option value="online">مشاركة أونلاين</option>
+                    <option value="" class="ar-content">-- اختر نوع المشاركة --</option>
+                    <option value="" class="en-content">-- Select Participation Type --</option>
+                    <option value="with_paper" class="ar-content">ببحث علمي</option>
+                    <option value="with_paper" class="en-content">With Research Paper</option>
+                    <option value="without_paper" class="ar-content">حضور فقط</option>
+                    <option value="without_paper" class="en-content">Attendance Only</option>
+                    <option value="online" class="ar-content">مشاركة أونلاين</option>
+                    <option value="online" class="en-content">Online Participation</option>
                 </select>
                 
-                <button type="submit">إرسال طلب التسجيل</button>
+                <button type="submit" class="ar-content">إرسال طلب التسجيل</button>
+                <button type="submit" class="en-content">Submit Registration</button>
             </form>
         </div>
     </section>
@@ -371,28 +516,49 @@
     <!-- قسم إرسال الأبحاث -->
     <section id="submission" class="section">
         <div class="container">
-            <h2>إرسال الملخصات والأبحاث</h2>
+            <h2 class="ar-content">إرسال الملخصات والأبحاث</h2>
+            <h2 class="en-content">Abstract and Paper Submission</h2>
             
-            <h3>إرسال الملخصات:</h3>
-            <p>ترسل الملخصات عبر البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
+            <h3 class="ar-content">إرسال الملخصات:</h3>
+            <h3 class="en-content">Abstract Submission:</h3>
+            <p class="ar-content">ترسل الملخصات عبر البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
+            <p class="en-content">Abstracts should be sent by email to: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></p>
             
-            <h4>شروط الملخص:</h4>
+            <h4 class="ar-content">شروط الملخص:</h4>
+            <h4 class="en-content">Abstract Requirements:</h4>
             <ul>
-                <li>مكتوب باللغة الإنجليزية.</li>
-                <li>الخط: Times New Roman حجم 12، سطور مفردة.</li>
-                <li>لا يزيد عن 250 كلمة.</li>
-                <li>يجب إرفاق إقرار بأن الملخص/البحث لم ولن يُقدم للنشر في أي مجلة أخرى.</li>
-                <li>تُرسل أسماء المؤلفين وجهة عملهم في ملف منفصل.</li>
+                <li class="ar-content">مكتوب باللغة الإنجليزية.</li>
+                <li class="en-content">Written in English.</li>
+                
+                <li class="ar-content">الخط: Times New Roman حجم 12، سطور مفردة.</li>
+                <li class="en-content">Font: Times New Roman size 12, single spaced.</li>
+                
+                <li class="ar-content">لا يزيد عن 250 كلمة.</li>
+                <li class="en-content">Not exceeding 250 words.</li>
+                
+                <li class="ar-content">يجب إرفاق إقرار بأن الملخص/البحث لم ولن يُقدم للنشر في أي مجلة أخرى.</li>
+                <li class="en-content">Must include a declaration that the abstract/paper has not been and will not be submitted for publication elsewhere.</li>
+                
+                <li class="ar-content">تُرسل أسماء المؤلفين وجهة عملهم في ملف منفصل.</li>
+                <li class="en-content">Authors' names and affiliations should be sent in a separate file.</li>
             </ul>
             
-            <h3>البحوث الكاملة:</h3>
-            <p>ترسل عبر الموقع الرسمي للمجلة: <a href="https://apj.journals.ekb.eg/" target="_blank">https://apj.journals.ekb.eg/</a></p>
-            <p>لا يزيد عدد صفحات البحث عن 10 صفحات، وكل صفحة إضافية يضاف 100 جنيه.</p>
+            <h3 class="ar-content">البحوث الكاملة:</h3>
+            <h3 class="en-content">Full Papers:</h3>
+            <p class="ar-content">ترسل عبر الموقع الرسمي للمجلة: <a href="https://apj.journals.ekb.eg/" target="_blank">https://apj.journals.ekb.eg/</a></p>
+            <p class="en-content">Should be submitted through the journal's official website: <a href="https://apj.journals.ekb.eg/" target="_blank">https://apj.journals.ekb.eg/</a></p>
             
-            <h3>النشر:</h3>
+            <p class="ar-content">لا يزيد عدد صفحات البحث عن 10 صفحات، وكل صفحة إضافية يضاف 100 جنيه.</p>
+            <p class="en-content">Papers should not exceed 10 pages, with an additional fee of 100 EGP per extra page.</p>
+            
+            <h3 class="ar-content">النشر:</h3>
+            <h3 class="en-content">Publication:</h3>
             <ul>
-                <li>جميع الملخصات المقبولة ستنشر في عدد خاص من مجلة Animal Physiology (عدد يناير 2026).</li>
-                <li>للأبحاث الكاملة، سيتم التحكيم والنشر وفق نظام المراجعة المزدوجة Double-blind.</li>
+                <li class="ar-content">جميع الملخصات المقبولة ستنشر في عدد خاص من مجلة Animal Physiology (عدد يناير 2026).</li>
+                <li class="en-content">All accepted abstracts will be published in a special issue of Animal Physiology Journal (January 2026 issue).</li>
+                
+                <li class="ar-content">للأبحاث الكاملة، سيتم التحكيم والنشر وفق نظام المراجعة المزدوجة Double-blind.</li>
+                <li class="en-content">For full papers, they will be peer-reviewed and published following the double-blind review system.</li>
             </ul>
         </div>
     </section>
@@ -400,92 +566,132 @@
     <!-- قسم رسوم المشاركة -->
     <section id="fees" class="section">
         <div class="container">
-            <h2>رسوم المشاركة</h2>
+            <h2 class="ar-content">رسوم المشاركة</h2>
+            <h2 class="en-content">Participation Fees</h2>
             
-            <h3>المشاركون المصريون:</h3>
+            <h3 class="ar-content">المشاركون المصريون:</h3>
+            <h3 class="en-content">Egyptian Participants:</h3>
             <ul>
-                <li>ببحث: 1000 جنيه مصري (لأعضاء هيئة التدريس وطلاب الدراسات العليا).</li>
-                <li>بدون بحث (حضور): 600 جنيه</li>
+                <li class="ar-content">ببحث: 1000 جنيه مصري (لأعضاء هيئة التدريس وطلاب الدراسات العليا).</li>
+                <li class="en-content">With paper: 1000 EGP (for faculty members and postgraduate students).</li>
+                
+                <li class="ar-content">بدون بحث (حضور): 600 جنيه</li>
+                <li class="en-content">Without paper (attendance only): 600 EGP</li>
             </ul>
             
-            <h4>خيارات الإقامة للمشاركين المصريين:</h4>
+            <h4 class="ar-content">خيارات الإقامة للمشاركين المصريين:</h4>
+            <h4 class="en-content">Accommodation Options for Egyptian Participants:</h4>
             <div class="accommodation-options">
                 <table>
                     <tr>
-                        <th>نوع الإقامة</th>
-                        <th>السعر (جنيه مصري)</th>
-                        <th>التفاصيل</th>
+                        <th class="ar-content">نوع الإقامة</th>
+                        <th class="en-content">Accommodation Type</th>
+                        <th class="ar-content">السعر (جنيه مصري)</th>
+                        <th class="en-content">Price (EGP)</th>
+                        <th class="ar-content">التفاصيل</th>
+                        <th class="en-content">Details</th>
                     </tr>
                     <tr>
-                        <td>فندق ريتاك العريش (4 نجوم)</td>
+                        <td class="ar-content">فندق ريتاك العريش (4 نجوم)</td>
+                        <td class="en-content">Retaj Al-Arish Hotel (4 stars)</td>
                         <td>5,500</td>
-                        <td>غرفة مزدوجة للفرد شامل الإفطار</td>
+                        <td class="ar-content">غرفة مزدوجة للفرد شامل الإفطار</td>
+                        <td class="en-content">Double room per person including breakfast</td>
                     </tr>
                     <tr>
-                        <td>فندق ريتاك العريش (4 نجوم)</td>
+                        <td class="ar-content">فندق ريتاك العريش (4 نجوم)</td>
+                        <td class="en-content">Retaj Al-Arish Hotel (4 stars)</td>
                         <td>10,200</td>
-                        <td>غرفة فردية للفرد شامل الإفطار</td>
+                        <td class="ar-content">غرفة فردية للفرد شامل الإفطار</td>
+                        <td class="en-content">Single room per person including breakfast</td>
                     </tr>
                     <tr>
-                        <td>دار الضيافة جامعة العريش</td>
+                        <td class="ar-content">دار الضيافة جامعة العريش</td>
+                        <td class="en-content">Arish University Guest House</td>
                         <td>165</td>
-                        <td>غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                        <td class="ar-content">غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                        <td class="en-content">Double room per person (meals not included)</td>
                     </tr>
                     <tr>
-                        <td>دار الضيافة جامعة العريش</td>
+                        <td class="ar-content">دار الضيافة جامعة العريش</td>
+                        <td class="en-content">Arish University Guest House</td>
                         <td>210</td>
-                        <td>غرفة فردية للفرد (غير شامل وجبات)</td>
+                        <td class="ar-content">غرفة فردية للفرد (غير شامل وجبات)</td>
+                        <td class="en-content">Single room per person (meals not included)</td>
                     </tr>
                     <tr>
-                        <td>دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td class="ar-content">دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td class="en-content">Arish University Guest House (AC)</td>
                         <td>360</td>
-                        <td>غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                        <td class="ar-content">غرفة مزدوجة للفرد (غير شامل وجبات)</td>
+                        <td class="en-content">Double room per person (meals not included)</td>
                     </tr>
                     <tr>
-                        <td>دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td class="ar-content">دار الضيافة جامعة العريش (مكيفة)</td>
+                        <td class="en-content">Arish University Guest House (AC)</td>
                         <td>510</td>
-                        <td>غرفة فردية للفرد (غير شامل وجبات)</td>
+                        <td class="ar-content">غرفة فردية للفرد (غير شامل وجبات)</td>
+                        <td class="en-content">Single room per person (meals not included)</td>
                     </tr>
                 </table>
-                <p>ملاحظة: أسعار الإقامة تشمل مدة المؤتمر كاملة (3 أيام). ويمكن تحديد مدة أقل لمن يرغب.</p>
+                <p class="ar-content">ملاحظة: أسعار الإقامة تشمل مدة المؤتمر كاملة (3 أيام). ويمكن تحديد مدة أقل لمن يرغب.</p>
+                <p class="en-content">Note: Accommodation prices cover the full conference period (3 days). Shorter stays are available upon request.</p>
             </div>
             
-            <h3>المشاركون الدوليون:</h3>
+            <h3 class="ar-content">المشاركون الدوليون:</h3>
+            <h3 class="en-content">International Participants:</h3>
             <ul>
-                <li>اشتراك حضور: 200 دولار</li>
-                <li>اشتراك ببحث: 400 دولار</li>
+                <li class="ar-content">اشتراك حضور: 200 دولار</li>
+                <li class="en-content">Attendance only: $200</li>
+                
+                <li class="ar-content">اشتراك ببحث: 400 دولار</li>
+                <li class="en-content">With paper: $400</li>
             </ul>
             
-            <h4>خيارات الإقامة للمشاركين الدوليين:</h4>
+            <h4 class="ar-content">خيارات الإقامة للمشاركين الدوليين:</h4>
+            <h4 class="en-content">Accommodation Options for International Participants:</h4>
             <div class="accommodation-options">
                 <table>
                     <tr>
-                        <th>نوع الإقامة</th>
-                        <th>السعر (دولار)</th>
-                        <th>التفاصيل</th>
+                        <th class="ar-content">نوع الإقامة</th>
+                        <th class="en-content">Accommodation Type</th>
+                        <th class="ar-content">السعر (دولار)</th>
+                        <th class="en-content">Price (USD)</th>
+                        <th class="ar-content">التفاصيل</th>
+                        <th class="en-content">Details</th>
                     </tr>
                     <tr>
-                        <td>غرفة فردية</td>
+                        <td class="ar-content">غرفة فردية</td>
+                        <td class="en-content">Single Room</td>
                         <td>170</td>
-                        <td>للمدة الكاملة</td>
+                        <td class="ar-content">للمدة الكاملة</td>
+                        <td class="en-content">For full duration</td>
                     </tr>
                     <tr>
-                        <td>غرفة مزدوجة</td>
+                        <td class="ar-content">غرفة مزدوجة</td>
+                        <td class="en-content">Double Room</td>
                         <td>225</td>
-                        <td>للمدة الكاملة</td>
+                        <td class="ar-content">للمدة الكاملة</td>
+                        <td class="en-content">For full duration</td>
                     </tr>
                     <tr>
-                        <td>باقة شاملة</td>
+                        <td class="ar-content">باقة شاملة</td>
+                        <td class="en-content">Full Package</td>
                         <td>500</td>
-                        <td>شاملة المواصلات والإقامة</td>
+                        <td class="ar-content">شاملة المواصلات والإقامة</td>
+                        <td class="en-content">Including transportation and accommodation</td>
                     </tr>
                 </table>
             </div>
             
-            <h3>المشاركة أونلاين بالشهادات:</h3>
+            <h3 class="ar-content">المشاركة أونلاين بالشهادات:</h3>
+            <h3 class="en-content">Online Participation with Certificates:</h3>
             <ul>
-                <li>400 جنيه مصري (للمصريين).</li>
-                <li>200 دولار (للدوليين).</li>
+                <li class="ar-content">400 جنيه مصري (للمصريين).</li>
+                <li class="en-content">400 EGP (for Egyptians).</li>
+                
+                <li class="ar-content">200 دولار (للدوليين).</li>
+                <li class="en-content">200 USD (for international participants).</li>
             </ul>
         </div>
     </section>
@@ -493,13 +699,23 @@
     <!-- قسم مزايا المشاركة -->
     <section class="section">
         <div class="container">
-            <h2>مزايا المشاركة</h2>
+            <h2 class="ar-content">مزايا المشاركة</h2>
+            <h2 class="en-content">Participation Benefits</h2>
             <ul>
-                <li>إقامة في فنادق 4 نجوم بمدينة العريش.</li>
-                <li>زيارات للمعالم الأثرية في مصر (الأهرامات، دير سانت كاترين).</li>
-                <li>فرصة لتعزيز التواصل العلمي والتعاون الدولي.</li>
-                <li>جائزة لأحسن بحث علمي مشارك.</li>
-                <li>نشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
+                <li class="ar-content">إقامة في فنادق 4 نجوم بمدينة العريش.</li>
+                <li class="en-content">Accommodation in 4-star hotels in Arish city.</li>
+                
+                <li class="ar-content">زيارات للمعالم الأثرية في مصر (الأهرامات، دير سانت كاترين).</li>
+                <li class="en-content">Visits to Egyptian landmarks (Pyramids, St. Catherine Monastery).</li>
+                
+                <li class="ar-content">فرصة لتعزيز التواصل العلمي والتعاون الدولي.</li>
+                <li class="en-content">Opportunity to enhance scientific networking and international collaboration.</li>
+                
+                <li class="ar-content">جائزة لأحسن بحث علمي مشارك.</li>
+                <li class="en-content">Award for best submitted research paper.</li>
+                
+                <li class="ar-content">نشر الأبحاث في عدد خاص من مجلة Animal Physiology.</li>
+                <li class="en-content">Publication of papers in a special issue of Animal Physiology Journal.</li>
             </ul>
         </div>
     </section>
@@ -507,21 +723,33 @@
     <!-- قسم اتصل بنا -->
     <section id="contact" class="section">
         <div class="container">
-            <h2>اتصل بنا</h2>
-            <p>للاستفسارات أو المساعدة، يمكنك التواصل معنا عبر:</p>
+            <h2 class="ar-content">اتصل بنا</h2>
+            <h2 class="en-content">Contact Us</h2>
+            
+            <p class="ar-content">للاستفسارات أو المساعدة، يمكنك التواصل معنا عبر:</p>
+            <p class="en-content">For inquiries or assistance, you can contact us via:</p>
+            
             <ul>
-                <li>البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></li>
-                <li>واتساب: د. محمد شعلان - <a href="https://wa.me/201006985455">+201006985455</a></li>
+                <li class="ar-content">البريد الإلكتروني: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></li>
+                <li class="en-content">Email: <a href="mailto:mohammed.shalaan@sci.aru.edu.eg">mohammed.shalaan@sci.aru.edu.eg</a></li>
+                
+                <li class="ar-content">واتساب: د. محمد شعلان - <a href="https://wa.me/201006985455">+201006985455</a></li>
+                <li class="en-content">WhatsApp: Dr. Mohammed Shalaan - <a href="https://wa.me/201006985455">+201006985455</a></li>
             </ul>
-            <p>نتطلع لمشاركتكم في هذا الحدث العلمي المميز!</p>
+            
+            <p class="ar-content">نتطلع لمشاركتكم في هذا الحدث العلمي المميز!</p>
+            <p class="en-content">We look forward to your participation in this distinguished scientific event!</p>
         </div>
     </section>
 
     <!-- الفوتر -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 المؤتمر الدولي الأول للفسيولوجي. جميع الحقوق محفوظة.</p>
-            <p>تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
+            <p class="ar-content">&copy; 2025 المؤتمر الدولي الأول للفسيولوجي. جميع الحقوق محفوظة.</p>
+            <p class="en-content">&copy; 2025 First International Conference of Physiology. All rights reserved.</p>
+            
+            <p class="ar-content">تنظيم: مجلة Animal Physiology بالتعاون مع بنك المعرفة المصري</p>
+            <p class="en-content">Organized by: Animal Physiology Journal in collaboration with Egyptian Knowledge Bank</p>
         </div>
     </footer>
 
@@ -536,7 +764,8 @@
                 const diff = eventDate - now;
 
                 if (diff < 0) {
-                    countdownElement.innerHTML = "لقد بدأ المؤتمر!";
+                    countdownElement.innerHTML = document.body.classList.contains('english') ? 
+                        "The conference has started!" : "لقد بدأ المؤتمر!";
                     return;
                 }
 
@@ -545,11 +774,31 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `${days} يوم - ${hours} ساعة - ${minutes} دقيقة - ${seconds} ثانية`;
+                if (document.body.classList.contains('english')) {
+                    countdownElement.innerHTML = `${days} days - ${hours} hours - ${minutes} minutes - ${seconds} seconds`;
+                } else {
+                    countdownElement.innerHTML = `${days} يوم - ${hours} ساعة - ${minutes} دقيقة - ${seconds} ثانية`;
+                }
             };
 
             updateCountdown();
             setInterval(updateCountdown, 1000);
+        }
+
+        // وظيفة تبديل اللغة
+        function switchLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('english');
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+            } else {
+                document.body.classList.remove('english');
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+            }
+            
+            // تحديث العد التنازلي عند تغيير اللغة
+            countdown();
         }
 
         document.addEventListener("DOMContentLoaded", countdown);
@@ -572,19 +821,29 @@
                 phone: document.getElementById('phone').value,
                 country: document.getElementById('country').value,
                 institution: document.getElementById('institution').value,
-                participation: document.getElementById('participation').value
+                participation: document.getElementById('participation').value,
+                language: document.body.classList.contains('english') ? 'English' : 'Arabic'
             };
 
             // إرسال البريد الإلكتروني
-            emailjs.send('service_7lcwx0s', 'template_e18mier', formData)
+            emailjs.send('service_7lcwx0s', 'template_e18mier'
+, formData)
                 .then(function(response) {
-                    alert('تم إرسال طلب التسجيل بنجاح! سنتواصل معك قريبًا.');
+                    if (document.body.classList.contains('english')) {
+                        alert('Registration request sent successfully! We will contact you soon.');
+                    } else {
+                        alert('تم إرسال طلب التسجيل بنجاح! سنتواصل معك قريبًا.');
+                    }
                     document.getElementById('registrationForm').reset();
                 }, function(error) {
                     console.error('حدث خطأ أثناء إرسال الطلب:', error);
-                    alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    if (document.body.classList.contains('english')) {
+                        alert('An error occurred while sending the request. Please try again.');
+                    } else {
+                        alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    }
                 });
         });
     </script>
 </body>
-                        </html>
+                    </html>
